@@ -1,33 +1,17 @@
 # self-study-task
+1. **locate vs find**  
+   - locate is a fast search tool because it uses a pre-built database. Just type `locate filename` and it shows results instantly. However, results might be outdated if the database wasn't updated recently (use `sudo updatedb` to update).  
+   - find is slower but more powerful because it searches the actual filesystem. You can search by name, size, type, modification date etc. Example: `find /home -name "*.txt"`.  
 
-### **1. File Search Commands**
-#### **locate vs find**
-| Command | Speed | Database | Best For | Example |
-|---------|-------|----------|----------|---------|
-| `locate` | Very fast | Uses pre-built database | Quick searches when you know filename | `locate myfile.txt` |
-| `find` | Slower | Searches in real-time | Advanced searches (size, type, date) | `find /home -name "*.txt"` |
+2. **apt vs dpkg vs yum vs rpm**  
+   - apt is the main package manager for Debian/Ubuntu. It handles dependencies automatically and downloads packages from online repositories. Example: `apt install package`.  
+   - dpkg is the low-level tool for installing .deb files in Debian systems. It doesn't resolve dependencies. Example: `dpkg -i package.deb`.  
+   - yum is like apt but for RedHat/CentOS systems. It manages dependencies and downloads packages. Example: `yum install package`.  
+   - rpm is the low-level installer for .rpm files in RedHat systems. Like dpkg, it doesn't handle dependencies. Example: `rpm -ivh package.rpm`.  
 
-Key Difference:
-- `locate` is faster but may show outdated results (run `updatedb` to update)
-- `find` is more powerful but slower (searches actual filesystem)
-
-### **2. Package Managers**
-#### **apt vs dpkg vs yum vs rpm**
-| Tool | Used In | Level | Pros | Cons | Example |
-|------|---------|-------|------|------|---------|
-| `apt` | Debian/Ubuntu | High-level | Handles dependencies | Only for Debian-based | `apt install firefox` |
-| `dpkg` | Debian/Ubuntu | Low-level | Installs .deb files | No dependency resolution | `dpkg -i package.deb` |
-| `yum` | RHEL/CentOS | High-level | Handles dependencies | Only for RedHat-based | `yum install httpd` |
-| `rpm` | RHEL/CentOS | Low-level | Installs .rpm files | No dependency resolution | `rpm -ivh package.rpm` |
-
-Key Differences:
-1. **High-level (apt/yum)**:
-   - Auto-resolve dependencies
-   - Download packages from internet
-   - Cleaner interface
-
-2. **Low-level (dpkg/rpm)**:
-   - Work with local files
-   - More manual control
-   - Need to handle dependencies yourself
+3. **Key differences**  
+   - locate is faster but less accurate, find is slower but more precise  
+   - apt/yum are high-level tools that handle dependencies  
+   - dpkg/rpm are low-level tools that work with local files  
+   - apt/dpkg are for Debian systems, yum/rpm are for RedHat systems  
 
